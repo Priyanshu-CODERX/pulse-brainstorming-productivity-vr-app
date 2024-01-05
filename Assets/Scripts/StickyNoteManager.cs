@@ -10,6 +10,7 @@ public class StickyNoteManager : MonoBehaviour
 
     private GameObject _insShadowObject = null;
     private RaycastHit hit;
+    private bool _canAttach = false;
 
     private void Update()
     {
@@ -18,8 +19,11 @@ public class StickyNoteManager : MonoBehaviour
 
     public void OnGrabRelease()
     {
-        this.gameObject.transform.position = hit.point;
-        this.gameObject.transform.rotation = Quaternion.identity;
+        if(_canAttach)
+        {
+            this.gameObject.transform.position = hit.point;
+            this.gameObject.transform.rotation = Quaternion.identity;
+        }
     }
 
     void ShootRaycast()
@@ -33,11 +37,17 @@ public class StickyNoteManager : MonoBehaviour
 
             if (hit.collider.gameObject.CompareTag("Board"))
             {
+                _canAttach = true;
+
                 if (_insShadowObject == null)
                 {
                     _insShadowObject = Instantiate(_stickyNoteShadowObject);
                 }
                 _insShadowObject.transform.position = hit.point;
+            }
+            else
+            {
+                _canAttach = false;
             }
         }
         else
