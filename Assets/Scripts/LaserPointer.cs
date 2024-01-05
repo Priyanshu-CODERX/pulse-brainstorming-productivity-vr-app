@@ -27,7 +27,7 @@ public class LaserPointer : MonoBehaviour
         {
             _laserEndPoint.transform.position = hit.point;
 
-            if (hit.collider.gameObject.CompareTag("Board"))
+            if (hit.collider.gameObject.CompareTag("Board") || hit.collider.gameObject.CompareTag("StickyNotes"))
             {
                 // Instantiate _insPointer only if it's null
                 if (_insPointer == null)

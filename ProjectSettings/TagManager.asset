@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Board
   - Hands
+  - StickyNotes
   layers:
   - Default
   - TransparentFX
