@@ -52,6 +52,7 @@ public class StickyNoteManager : MonoBehaviour
         }
         else
         {
+            _canAttach = false;
             DestroyStickyNoteShadow();
         }
     }
