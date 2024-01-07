@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: -7102154058083752263}
   m_Layer: 0
   m_Name: Laser Pointer
-  m_TagString: Untagged
+  m_TagString: LaserPointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeDestruction: 5
+  objectTag: LaserPointer
 --- !u!1 &6625200494945310170
 GameObject:
   m_ObjectHideFlags: 0

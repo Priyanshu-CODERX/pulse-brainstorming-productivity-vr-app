@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StickyNoteManager : MonoBehaviour
 {
     [SerializeField] private Transform _stickyNoteOrigin;
     [SerializeField] private GameObject _stickyNoteShadowObject;
     [SerializeField] private int _maxLength = 20;
+    [SerializeField] private Transform _parentObject;
+    [SerializeField] private UnityEvent OnCall;
 
     private GameObject _insShadowObject = null;
     private RaycastHit hit;
@@ -23,6 +26,7 @@ public class StickyNoteManager : MonoBehaviour
         {
             this.gameObject.transform.position = hit.point;
             this.gameObject.transform.rotation = Quaternion.identity;
+            OnCall.Invoke();
         }
     }
 
@@ -42,6 +46,7 @@ public class StickyNoteManager : MonoBehaviour
                 if (_insShadowObject == null)
                 {
                     _insShadowObject = Instantiate(_stickyNoteShadowObject);
+                    _insShadowObject.transform.parent = _parentObject.transform;
                 }
                 _insShadowObject.transform.position = hit.point;
             }

@@ -7,10 +7,11 @@ public class AutoDestroyObject : MonoBehaviour
     private bool isGrabbed = false;
     private bool scheduledForDestruction = false;
     [SerializeField] private float delayBeforeDestruction = 20f; // Adjust the delay as needed
+    [SerializeField] private string objectTag = "";
 
     private void Update()
     {
-        if (isGrabbed)
+        if (isGrabbed && gameObject.CompareTag(objectTag))
         {
             // The object is grabbed, cancel destruction
             CancelScheduledDestruction();
