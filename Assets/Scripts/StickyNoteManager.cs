@@ -9,7 +9,8 @@ public class StickyNoteManager : MonoBehaviour
     [SerializeField] private GameObject _stickyNoteShadowObject;
     [SerializeField] private int _maxLength = 20;
     [SerializeField] private Transform _parentObject;
-    [SerializeField] private UnityEvent OnCall;
+    [SerializeField] private UnityEvent OnEventCaptured;
+    [SerializeField] private UnityEvent OnEventReleased;
 
     private GameObject _insShadowObject = null;
     private RaycastHit hit;
@@ -26,7 +27,7 @@ public class StickyNoteManager : MonoBehaviour
         {
             this.gameObject.transform.position = hit.point;
             this.gameObject.transform.rotation = Quaternion.identity;
-            OnCall.Invoke();
+            OnEventCaptured.Invoke();
         }
     }
 
