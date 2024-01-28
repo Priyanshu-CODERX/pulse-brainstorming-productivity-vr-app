@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 
 public class WhiteboardMarker : MonoBehaviour
@@ -18,18 +16,33 @@ public class WhiteboardMarker : MonoBehaviour
     private Vector2 _touchPos, _lastTouchPos;
     private bool _touchedLastFrame;
     private Quaternion _lastTouchRot;
-    
+
+    private Color[] _previousColors;
+
     void Start()
     {
         _renderer = _tip.GetComponent<Renderer>();
         _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
+        _previousColors = _colors;
         _tipHeight = _tip.localScale.y;
     }
 
     void Update()
     {
         Draw();
+        UpdateMarkerInk();
     }
+
+    private void UpdateMarkerInk()
+    {
+        if (_renderer != null && _previousColors[0] != _renderer.material.color)
+        {
+            _renderer = _tip.GetComponent<Renderer>();
+            _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
+            Array.Copy(_colors, _previousColors, _colors.Length);
+        }
+    }
+
 
     private void Draw()
     {
@@ -61,7 +74,7 @@ public class WhiteboardMarker : MonoBehaviour
                     }
 
                     transform.rotation = _lastTouchRot;
-                    
+
                     _whiteboard.texture.Apply();
                 }
 

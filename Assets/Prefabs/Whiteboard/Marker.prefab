@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 7799567377952751851}
   m_Layer: 0
   m_Name: Marker
-  m_TagString: Untagged
+  m_TagString: Marker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 5216141212517954671}
   m_Layer: 0
   m_Name: Tip
-  m_TagString: Untagged
+  m_TagString: MarkerTip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

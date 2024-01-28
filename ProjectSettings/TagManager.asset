@@ -9,6 +9,8 @@ TagManager:
   - StickyNotes
   - LaserPointer
   - Whiteboard
+  - Marker
+  - MarkerTip
   layers:
   - Default
   - TransparentFX
