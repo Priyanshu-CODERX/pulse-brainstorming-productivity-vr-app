@@ -5,6 +5,15 @@ public class WhiteboardEraser : MonoBehaviour
     [SerializeField] private Whiteboard _whiteboard;
     [SerializeField] private int _eraserSize = 40;
 
+    [SerializeField] private Transform _eraserTip = null;
+    [SerializeField] private float _eraserHeight = 0;
+
+    private void Start()
+    {
+        if (_eraserHeight == 0)
+            _eraserHeight = _eraserTip.localScale.y;
+    }
+
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -20,22 +29,21 @@ public class WhiteboardEraser : MonoBehaviour
                 }
             }
         }
+
+        HandleEraserRaycastTouch();
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void HandleEraserRaycastTouch()
     {
-        if (collision.collider.CompareTag("Whiteboard"))
+        RaycastHit _touch;
+        if (Physics.Raycast(_eraserTip.position, transform.up, out _touch, _eraserHeight))
         {
-            RaycastHit hit;
-            Ray ray = new Ray(transform.position, collision.contacts[0].point - transform.position);
-
-            if (collision.collider.Raycast(ray, out hit, Mathf.Infinity))
+            if (_touch.transform.CompareTag("Whiteboard"))
             {
-                ClearWhiteboardAt(hit.textureCoord);
+                ClearWhiteboardAt(_touch.textureCoord);
             }
         }
     }
-
 
     private void ClearWhiteboardAt(Vector2 textureCoord)
     {
