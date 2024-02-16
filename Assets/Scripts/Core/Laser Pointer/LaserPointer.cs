@@ -44,7 +44,7 @@ public class LaserPointer : MonoBehaviour
         }
     }
 
-    void DestroyPointer()
+    public void DestroyPointer()
     {
         if (_insPointer != null)
         {
