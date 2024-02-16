@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,9 +19,10 @@ public class StickyNoteManager : MonoBehaviour
         ShootRaycast();
     }
 
+
     public void OnGrabRelease()
     {
-        if(_canAttach)
+        if (_canAttach)
         {
             this.gameObject.transform.position = hit.point;
             this.gameObject.transform.rotation = Quaternion.identity;
@@ -54,6 +53,7 @@ public class StickyNoteManager : MonoBehaviour
             else
             {
                 _canAttach = false;
+                DestroyStickyNoteShadow();
             }
         }
         else
