@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tip: {fileID: 5216141212517954656}
-  _penSize: 15
+  _penSize: 5
 --- !u!65 &2679778378608005114
 BoxCollider:
   m_ObjectHideFlags: 0

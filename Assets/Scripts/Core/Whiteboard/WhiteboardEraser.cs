@@ -8,6 +8,11 @@ public class WhiteboardEraser : MonoBehaviour
     [SerializeField] private Transform _eraserTip = null;
     [SerializeField] private float _eraserHeight = 0;
 
+    private void Awake()
+    {
+        if (_whiteboard == null)
+            _whiteboard = FindObjectOfType<Whiteboard>().GetComponent<Whiteboard>();
+    }
     private void Start()
     {
         if (_eraserHeight == 0)
