@@ -7,8 +7,8 @@ public class WhiteboardMarker : MonoBehaviour
     [SerializeField] private Transform _tip;
     [SerializeField] private int _penSize = 5;
     [SerializeField] private float _tipHeight = 2f;
-    [SerializeField] private Collider _ignoreCollider = null;
     [SerializeField] private Renderer _markerColorRenderer;
+    [SerializeField] private string _ignoreTag = "";
 
     //private Renderer _renderer;
     private Color[] _colors;
@@ -50,9 +50,17 @@ public class WhiteboardMarker : MonoBehaviour
     {
         if (Physics.Raycast(_tip.position, transform.up, out _touch, _tipHeight))
         {
-            if (_touch.collider == _ignoreCollider)
+            Collider[] allColliders = GameObject.FindObjectsOfType<Collider>();
+
+            foreach (Collider collider in allColliders)
             {
-                Physics.IgnoreCollision(GetComponent<Collider>(), _ignoreCollider, true);
+                if (collider.CompareTag(_ignoreTag))
+                {
+                    // Ignore collisions with Whiteboard
+                    continue;
+                }
+
+                Physics.IgnoreCollision(GetComponent<Collider>(), collider, true);
             }
 
             if (_touch.transform.CompareTag("Whiteboard"))

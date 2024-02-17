@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2771762095958264247}
   m_Layer: 0
   m_Name: crayon_crayon_0
-  m_TagString: Untagged
+  m_TagString: MarkerColor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,8 +244,8 @@ MonoBehaviour:
   _tip: {fileID: 5216141212517954656}
   _penSize: 5
   _tipHeight: 0.2
-  _ignoreCollider: {fileID: 2679778378608005114}
   _markerColorRenderer: {fileID: 977743413459532715}
+  _ignoreTag: Whiteboard
 --- !u!65 &2679778378608005114
 BoxCollider:
   m_ObjectHideFlags: 0
