@@ -12,6 +12,7 @@ TagManager:
   - Marker
   - MarkerTip
   - Eraser
+  - MarkerColor
   layers:
   - Default
   - TransparentFX

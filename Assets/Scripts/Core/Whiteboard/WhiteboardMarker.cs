@@ -8,8 +8,9 @@ public class WhiteboardMarker : MonoBehaviour
     [SerializeField] private int _penSize = 5;
     [SerializeField] private float _tipHeight = 2f;
     [SerializeField] private Collider _ignoreCollider = null;
+    [SerializeField] private Renderer _markerColorRenderer;
 
-    private Renderer _renderer;
+    //private Renderer _renderer;
     private Color[] _colors;
 
     private RaycastHit _touch;
@@ -22,8 +23,8 @@ public class WhiteboardMarker : MonoBehaviour
 
     void Start()
     {
-        _renderer = _tip.GetComponent<Renderer>();
-        _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
+        //_markerColorRenderer = _tip.GetComponent<Renderer>();
+        _colors = Enumerable.Repeat(_markerColorRenderer.material.color, _penSize * _penSize).ToArray();
         _previousColors = _colors;
         //_tipHeight = _tip.localScale.y;
     }
@@ -36,10 +37,10 @@ public class WhiteboardMarker : MonoBehaviour
 
     private void UpdateMarkerInk()
     {
-        if (_renderer != null && _previousColors[0] != _renderer.material.color)
+        if (_markerColorRenderer != null && _previousColors[0] != _markerColorRenderer.material.color)
         {
-            _renderer = _tip.GetComponent<Renderer>();
-            _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
+            //_markerColorRenderer = _tip.GetComponent<Renderer>();
+            _colors = Enumerable.Repeat(_markerColorRenderer.material.color, _penSize * _penSize).ToArray();
             Array.Copy(_colors, _previousColors, _colors.Length);
         }
     }
