@@ -221,6 +221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tip: {fileID: 5216141212517954656}
   _penSize: 5
+  _tipHeight: 2
+  _ignoreCollider: {fileID: 2679778378608005114}
 --- !u!65 &2679778378608005114
 BoxCollider:
   m_ObjectHideFlags: 0

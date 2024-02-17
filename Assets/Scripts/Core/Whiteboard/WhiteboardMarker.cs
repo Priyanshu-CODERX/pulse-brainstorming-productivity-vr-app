@@ -6,10 +6,11 @@ public class WhiteboardMarker : MonoBehaviour
 {
     [SerializeField] private Transform _tip;
     [SerializeField] private int _penSize = 5;
+    [SerializeField] private float _tipHeight = 2f;
+    [SerializeField] private Collider _ignoreCollider = null;
 
     private Renderer _renderer;
     private Color[] _colors;
-    private float _tipHeight;
 
     private RaycastHit _touch;
     private Whiteboard _whiteboard;
@@ -24,7 +25,7 @@ public class WhiteboardMarker : MonoBehaviour
         _renderer = _tip.GetComponent<Renderer>();
         _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
         _previousColors = _colors;
-        _tipHeight = _tip.localScale.y;
+        //_tipHeight = _tip.localScale.y;
     }
 
     void Update()
@@ -48,6 +49,11 @@ public class WhiteboardMarker : MonoBehaviour
     {
         if (Physics.Raycast(_tip.position, transform.up, out _touch, _tipHeight))
         {
+            if (_touch.collider == _ignoreCollider)
+            {
+                Physics.IgnoreCollision(GetComponent<Collider>(), _ignoreCollider, true);
+            }
+
             if (_touch.transform.CompareTag("Whiteboard"))
             {
                 if (_whiteboard == null)
