@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class EnvDrawingController : MonoBehaviour
 {
+    [Header("Controller Configuration")]
+    [SerializeField] private InputData _mainController;
+    [SerializeField] private MeshRenderer _sphereMeshRenderer;
+    [SerializeField] private Material _sphereMeshDeleteMaterial;
+    [SerializeField] private Material _sphereMeshDrawMaterial;
+
+
     private GameObject _drawingTrails;
 
     [SerializeField] private Camera _camera;
@@ -22,7 +31,19 @@ public class EnvDrawingController : MonoBehaviour
     [SerializeField] private int _cornerVertices = 90;
     [SerializeField] private int _endCapVertices = 90;
     [SerializeField] private UnityEngine.Rendering.ShadowCastingMode _trailShadowCastingMode;
+    [SerializeField] private bool canDraw = true;
     [SerializeField] private bool canBakeMesh = false;
+    [SerializeField] private bool addPhysics = false;
+
+    private void Start()
+    {
+        _mainController = FindObjectOfType<InputData>();
+    }
+
+    private void Update()
+    {
+        DeleteDrawing();
+    }
 
     private void ConfigureTrailRenderer(TrailRenderer _trailRenderer)
     {
@@ -39,12 +60,15 @@ public class EnvDrawingController : MonoBehaviour
     [ContextMenu("Initialize Drawing Trails")]
     public void StartDrawing()
     {
-        _drawingTrails = new GameObject("DrawingTrailRenderer");
-        _drawingTrails.transform.parent = _initiationTransform;
-        _drawingTrails.transform.position = _initiationTransform.position;
-        _drawingTrails.AddComponent<TrailRenderer>();
+        if(canDraw == true)
+        {
+            _drawingTrails = new GameObject("DrawingTrailRenderer");
+            _drawingTrails.transform.parent = _initiationTransform;
+            _drawingTrails.transform.position = _initiationTransform.position;
+            _drawingTrails.AddComponent<TrailRenderer>();
 
-        ConfigureTrailRenderer(_drawingTrails.GetComponent<TrailRenderer>());
+            ConfigureTrailRenderer(_drawingTrails.GetComponent<TrailRenderer>());
+        }
     }
 
     [ContextMenu("End Drawing Trails")]
@@ -71,19 +95,42 @@ public class EnvDrawingController : MonoBehaviour
             }
             trailRenderer.enabled = false;
         }
+        
+        if(addPhysics == true)
+        {
+            BoxCollider _trailCollider = _drawingTrails.AddComponent<BoxCollider>();
+            Rigidbody _trailRigidbody = _drawingTrails.AddComponent<Rigidbody>();
+            XRGrabInteractable _trailGrabInteractable = _drawingTrails.AddComponent<XRGrabInteractable>();
 
-        BoxCollider _trailCollider = _drawingTrails.AddComponent<BoxCollider>();
-        Rigidbody _trailRigidbody = _drawingTrails.AddComponent<Rigidbody>();
-        XRGrabInteractable _trailGrabInteractable = _drawingTrails.AddComponent<XRGrabInteractable>();
+            _trailCollider.isTrigger = true;
 
-        _trailCollider.isTrigger = true;
+            _trailRigidbody.isKinematic = true;
+            _trailRigidbody.useGravity = false;
 
-        _trailRigidbody.isKinematic = true;
-        _trailRigidbody.useGravity = false;
+            _trailGrabInteractable.useDynamicAttach = true;
+        }
 
-        _trailGrabInteractable.useDynamicAttach = true;
+        if(canDraw == true)
+        {
+            _drawingTrails.transform.parent = _deinitializationTransform;
+            _drawingTrails = null;
+        }
+    }
 
-        _drawingTrails.transform.parent = _deinitializationTransform;
-        _drawingTrails = null;
+    public void DeleteDrawing()
+    {
+
+        if((_mainController._leftController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isLeftButtonPressed) && isLeftButtonPressed == true) || (_mainController._rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isRightButtonPressed) && isRightButtonPressed == true))
+        {
+            _sphereMeshRenderer.GetComponent<MeshRenderer>().material = _sphereMeshDeleteMaterial;
+            canDraw = false;
+        }
+        else
+        {
+            _sphereMeshRenderer.GetComponent<MeshRenderer>().material = _sphereMeshDrawMaterial;
+            canDraw = true;
+        }
+
+
     }
 }
