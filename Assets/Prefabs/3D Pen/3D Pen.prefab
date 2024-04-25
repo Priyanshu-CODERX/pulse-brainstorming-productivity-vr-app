@@ -432,14 +432,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainController: {fileID: 0}
+  _camera: {fileID: 0}
+  _initiationTransform: {fileID: 8155780634659215877}
+  _deinitializationTransform: {fileID: 0}
   _sphereMeshRenderer: {fileID: 5540015838850806758}
   _sphereMeshDeleteMaterial: {fileID: 2100000, guid: 19bd55ca55bf61043bc9558ade855159,
     type: 2}
   _sphereMeshDrawMaterial: {fileID: 2100000, guid: bcbb3901f6bc3c64683b3d4502de9c26,
     type: 2}
-  _camera: {fileID: 0}
-  _initiationTransform: {fileID: 8155780634659215877}
-  _deinitializationTransform: {fileID: 0}
   _drawingTrailsMaterial: {fileID: 2100000, guid: a9a3f5dba326f004680d009975d667d0,
     type: 2}
   _trailStartWidth: 0.02
@@ -448,8 +448,9 @@ MonoBehaviour:
   _cornerVertices: 90
   _endCapVertices: 90
   _trailShadowCastingMode: 0
+  canDraw: 1
   canBakeMesh: 0
-  addPhysics: 0
+  addPhysics: 1
 --- !u!65 &3773776530455753474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -561,12 +562,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 462577898544684037}
+        m_TargetAssemblyTypeName: EnvDrawingController, Assembly-CSharp
+        m_MethodName: SetGrabParameterTrue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2633925057854482494}
         m_TargetAssemblyTypeName: AutoDestroyObject, Assembly-CSharp
         m_MethodName: ReleaseObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 462577898544684037}
+        m_TargetAssemblyTypeName: EnvDrawingController, Assembly-CSharp
+        m_MethodName: SetGrabParameterFalse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

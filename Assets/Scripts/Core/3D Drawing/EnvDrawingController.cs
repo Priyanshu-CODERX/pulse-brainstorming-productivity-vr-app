@@ -11,21 +11,20 @@ public class EnvDrawingController : MonoBehaviour
 {
     [Header("Controller Configuration")]
     [SerializeField] private InputData _mainController;
-    [SerializeField] private MeshRenderer _sphereMeshRenderer;
-    [SerializeField] private Material _sphereMeshDeleteMaterial;
-    [SerializeField] private Material _sphereMeshDrawMaterial;
-
-
-    private GameObject _drawingTrails;
 
     [SerializeField] private Camera _camera;
 
     [SerializeField] private Transform _initiationTransform;
     [SerializeField] private Transform _deinitializationTransform;
 
+    [Header("3D Pen Visual Configuration")]
+    [SerializeField] private MeshRenderer _sphereMeshRenderer;
+    [SerializeField] private Material _sphereMeshDeleteMaterial;
+    [SerializeField] private Material _sphereMeshDrawMaterial;
+
     [Header("Trail Renderer Configuration")]
     [SerializeField] private Material _drawingTrailsMaterial;
-    [SerializeField] private float _trailStartWidth = 0.002f;   
+    [SerializeField] private float _trailStartWidth = 0.002f;
     [SerializeField] private float _trailEndWidth = 0.002f;
     [SerializeField] private float _minimumVertexDistance = 0.1f;
     [SerializeField] private int _cornerVertices = 90;
@@ -34,6 +33,10 @@ public class EnvDrawingController : MonoBehaviour
     [SerializeField] private bool canDraw = true;
     [SerializeField] private bool canBakeMesh = false;
     [SerializeField] private bool addPhysics = false;
+
+    private GameObject _drawingTrails;
+    private bool _isLeftButtonPressed;
+    private bool _isRightButtonPressed;
 
     private void Start()
     {
@@ -60,7 +63,7 @@ public class EnvDrawingController : MonoBehaviour
     [ContextMenu("Initialize Drawing Trails")]
     public void StartDrawing()
     {
-        if(canDraw == true)
+        if (canDraw == true)
         {
             _drawingTrails = new GameObject("DrawingTrailRenderer");
             _drawingTrails.transform.parent = _initiationTransform;
@@ -96,31 +99,38 @@ public class EnvDrawingController : MonoBehaviour
             trailRenderer.enabled = false;
         }
         
-        if(addPhysics == true)
+        if(addPhysics == true && canDraw == true)
         {
-            BoxCollider _trailCollider = _drawingTrails.AddComponent<BoxCollider>();
-            Rigidbody _trailRigidbody = _drawingTrails.AddComponent<Rigidbody>();
-            XRGrabInteractable _trailGrabInteractable = _drawingTrails.AddComponent<XRGrabInteractable>();
+            BoxCollider _trailCollider = _drawingTrails?.AddComponent<BoxCollider>();
+            Rigidbody _trailRigidbody = _drawingTrails?.AddComponent<Rigidbody>();
+            //XRGrabInteractable _trailGrabInteractable = _drawingTrails.AddComponent<XRGrabInteractable>();
+            //_trailGrabInteractable.useDynamicAttach = true;
 
-            _trailCollider.isTrigger = true;
+            if(_trailRigidbody != null)
+            {
+                _trailRigidbody.isKinematic = true;
+                _trailRigidbody.useGravity = false;
+            }
 
-            _trailRigidbody.isKinematic = true;
-            _trailRigidbody.useGravity = false;
-
-            _trailGrabInteractable.useDynamicAttach = true;
+            if(_trailCollider != null)
+            {
+                _trailCollider.isTrigger = true;
+            }
         }
 
         if(canDraw == true)
         {
-            _drawingTrails.transform.parent = _deinitializationTransform;
-            _drawingTrails = null;
+            if(_drawingTrails != null)
+            {
+                _drawingTrails.transform.parent = _deinitializationTransform;
+                _drawingTrails = null;
+            }
         }
     }
 
     public void DeleteDrawing()
     {
-
-        if((_mainController._leftController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isLeftButtonPressed) && isLeftButtonPressed == true) || (_mainController._rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isRightButtonPressed) && isRightButtonPressed == true))
+        if ((_mainController._leftController.TryGetFeatureValue(CommonUsages.primaryButton, out _isLeftButtonPressed) && _isLeftButtonPressed == true) || (_mainController._rightController.TryGetFeatureValue(CommonUsages.primaryButton, out _isRightButtonPressed) && _isRightButtonPressed == true))
         {
             _sphereMeshRenderer.GetComponent<MeshRenderer>().material = _sphereMeshDeleteMaterial;
             canDraw = false;
@@ -130,7 +140,5 @@ public class EnvDrawingController : MonoBehaviour
             _sphereMeshRenderer.GetComponent<MeshRenderer>().material = _sphereMeshDrawMaterial;
             canDraw = true;
         }
-
-
     }
 }
