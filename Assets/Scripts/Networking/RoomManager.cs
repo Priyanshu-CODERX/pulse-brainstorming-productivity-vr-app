@@ -1,4 +1,3 @@
-using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,5 +34,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         GameObject _playerRig = PhotonNetwork.Instantiate(XRRig.name, spawnPoint.position, Quaternion.identity);
+        _playerRig.GetComponent<NetworkedPlayerConfiguration>().IsLocalUser();
     }
 }

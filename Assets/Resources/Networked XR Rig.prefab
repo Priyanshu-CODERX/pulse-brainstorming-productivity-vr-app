@@ -1586,6 +1586,7 @@ GameObject:
   - component: {fileID: 7018687011070955307}
   - component: {fileID: -7090777196229195745}
   - component: {fileID: 596467762125892149}
+  - component: {fileID: 3902099027988287355}
   m_Layer: 0
   m_Name: Networked XR Rig
   m_TagString: Untagged
@@ -1659,7 +1660,7 @@ CharacterController:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Height: 1
   m_Radius: 0.1
@@ -1734,6 +1735,21 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &3902099027988287355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269486183301413524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8dbcb5e61c31644921bd12011988f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XRRigCharacterController: {fileID: 3525863152194784250}
+  XRRigCharacterControllerDriver: {fileID: 5981811980498120604}
+  XRRigCamera: {fileID: 4742742712994802898}
 --- !u!1 &3413881076500131403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,7 +3692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6542808576114310139
 Transform:
   m_ObjectHideFlags: 0
