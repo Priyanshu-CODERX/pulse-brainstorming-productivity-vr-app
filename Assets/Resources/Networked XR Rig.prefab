@@ -1587,6 +1587,7 @@ GameObject:
   - component: {fileID: -7090777196229195745}
   - component: {fileID: 596467762125892149}
   - component: {fileID: 3902099027988287355}
+  - component: {fileID: 6971478389492478541}
   m_Layer: 0
   m_Name: Networked XR Rig
   m_TagString: Untagged
@@ -1718,6 +1719,8 @@ MonoBehaviour:
   - {fileID: 596467762125892149}
   - {fileID: 5966489423165058408}
   - {fileID: 5100048585284992489}
+  - {fileID: 6226210908522817794}
+  - {fileID: 2254895561631161430}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1756,6 +1759,21 @@ MonoBehaviour:
   XRRigInputData: {fileID: 7018687011070955307}
   XRLocomotion: {fileID: 2601226755350765844}
   XRRigCamera: {fileID: 4742742712994802898}
+--- !u!114 &6971478389492478541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269486183301413524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00401e5faa1b03f4f8b8356e5b198b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Roomcode: 
+  Username: 
+  Maxplayers: 
 --- !u!1 &3413881076500131403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7175,8 +7193,42 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6120867017622508170}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3240524871627034548, guid: 534053b397750e74588f25f926e8da72,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2254895561631161430}
   m_SourcePrefab: {fileID: 100100000, guid: 534053b397750e74588f25f926e8da72, type: 3}
+--- !u!1 &2908158308694306767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3240524871627034548, guid: 534053b397750e74588f25f926e8da72,
+    type: 3}
+  m_PrefabInstance: {fileID: 334236835309346939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2254895561631161430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908158308694306767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 1
+    Name: Grip
+  - Type: 1
+    SynchronizeType: 1
+    Name: Trigger
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!4 &2908158308694406037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3240524871626806254, guid: 534053b397750e74588f25f926e8da72,
@@ -7264,7 +7316,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4439206633501549566}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7072478885645355679, guid: a543ce027c5ec3a4788c4f633673c3de,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6226210908522817794}
   m_SourcePrefab: {fileID: 100100000, guid: a543ce027c5ec3a4788c4f633673c3de, type: 3}
 --- !u!4 &3130034287119196826 stripped
 Transform:
@@ -7278,3 +7334,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5284520659653260383}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3130034287119695552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072478885645355679, guid: a543ce027c5ec3a4788c4f633673c3de,
+    type: 3}
+  m_PrefabInstance: {fileID: 5284520659653260383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6226210908522817794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130034287119695552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 1
+    Name: Grip
+  - Type: 1
+    SynchronizeType: 1
+    Name: Trigger
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
