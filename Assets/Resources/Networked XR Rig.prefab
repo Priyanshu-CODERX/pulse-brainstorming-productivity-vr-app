@@ -1587,7 +1587,6 @@ GameObject:
   - component: {fileID: -7090777196229195745}
   - component: {fileID: 596467762125892149}
   - component: {fileID: 3902099027988287355}
-  - component: {fileID: 6971478389492478541}
   m_Layer: 0
   m_Name: Networked XR Rig
   m_TagString: Untagged
@@ -1759,21 +1758,6 @@ MonoBehaviour:
   XRRigInputData: {fileID: 7018687011070955307}
   XRLocomotion: {fileID: 2601226755350765844}
   XRRigCamera: {fileID: 4742742712994802898}
---- !u!114 &6971478389492478541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269486183301413524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00401e5faa1b03f4f8b8356e5b198b8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Roomcode: 
-  Username: 
-  Maxplayers: 
 --- !u!1 &3413881076500131403
 GameObject:
   m_ObjectHideFlags: 0
