@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
-public class XRHandController : MonoBehaviour
+public class XRHandController : MonoBehaviourPunCallbacks
 {
     public InputActionReference gripInputActionReference;
     public InputActionReference triggerInputActionReference;
+    public bool isNetworked = false;
 
     private Animator _handAnimator;
     private float _gripValue;
@@ -19,19 +21,22 @@ public class XRHandController : MonoBehaviour
 
     private void Update()
     {
-        AnimateGrip();
-        AnimateTrigger();
+        if (photonView.IsMine)
+        {
+            AnimateGrip();
+            AnimateTrigger();
+        }
     }
 
     private void AnimateGrip()
     {
-        _gripValue = gripInputActionReference.action.ReadValue<float>();
-        _handAnimator.SetFloat("Grip", _gripValue);
+            _gripValue = gripInputActionReference.action.ReadValue<float>();
+            _handAnimator.SetFloat("Grip", _gripValue);
     }
 
     private void AnimateTrigger()
     {
-        _triggerValue = triggerInputActionReference.action.ReadValue<float>();
-        _handAnimator.SetFloat("Trigger", _triggerValue);
+            _triggerValue = triggerInputActionReference.action.ReadValue<float>();
+            _handAnimator.SetFloat("Trigger", _triggerValue);
     }
 }
