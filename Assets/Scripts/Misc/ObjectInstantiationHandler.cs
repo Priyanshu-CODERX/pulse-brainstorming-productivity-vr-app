@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
 
-public class ObjectInstantiationHandler : MonoBehaviour
+public class ObjectInstantiationHandler : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject _object;
     [SerializeField] private Transform _instantiationOrigin;
@@ -24,14 +25,14 @@ public class ObjectInstantiationHandler : MonoBehaviour
     {
         if(_instantiatedObject == null)
         {
-            _instantiatedObject = Instantiate(_object);
+            _instantiatedObject = PhotonNetwork.Instantiate(_object.name, _instantiationOrigin.transform.position, Quaternion.identity);
             _instantiatedObject.transform.position = _instantiationOrigin.transform.position;
         }
     }
 
     public void InstantiateObjectOnHoveringBubble()
     {
-        _instantiatedObject = Instantiate(_object);
+        _instantiatedObject = PhotonNetwork.Instantiate(_object.name, _instantiationOrigin.transform.position, Quaternion.identity);
         _instantiatedObject.transform.position = _instantiationOrigin.transform.position;
     }
 }
