@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,6 +51,6 @@ public class AutoDestroyObject : MonoBehaviour
     private void DestroyObject()
     {
         // Perform any cleanup or additional actions before destroying
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
 }

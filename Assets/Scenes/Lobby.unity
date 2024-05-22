@@ -11130,7 +11130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Roomcode: 
   Username: 
-  Maxplayers: 
+  Maxplayers: 10
 --- !u!1 &626371564
 GameObject:
   m_ObjectHideFlags: 0
