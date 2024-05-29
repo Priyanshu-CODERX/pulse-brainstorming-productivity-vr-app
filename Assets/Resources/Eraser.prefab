@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5657375577171474105}
   - component: {fileID: 9110089445432803231}
   - component: {fileID: 7825707309712214173}
-  - component: {fileID: 6304579444045421}
+  - component: {fileID: -641837058101062289}
   m_Layer: 0
   m_Name: Eraser
   m_TagString: Eraser
@@ -366,11 +366,12 @@ MonoBehaviour:
   OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 6304579444045421}
+  - {fileID: -641837058101062289}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6304579444045421
+--- !u!114 &-641837058101062289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,7 +386,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!1 &4736047533286507966
 GameObject:
   m_ObjectHideFlags: 0
