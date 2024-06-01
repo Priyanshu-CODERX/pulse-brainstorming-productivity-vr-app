@@ -2190,6 +2190,19 @@ MonoBehaviour:
       - m_Target: {fileID: 1183636116}
         m_TargetAssemblyTypeName: Microsoft.MixedReality.Toolkit.Experimental.UI.NonNativeKeyboard,
           Assembly-CSharp
+        m_MethodName: SwitchKeyboardInputField
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 112676039}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1183636116}
+        m_TargetAssemblyTypeName: Microsoft.MixedReality.Toolkit.Experimental.UI.NonNativeKeyboard,
+          Assembly-CSharp
         m_MethodName: PresentKeyboard
         m_Mode: 0
         m_Arguments:
@@ -9362,6 +9375,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Networked XR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 3902099027988287355, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4742742712994802898, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
       propertyPath: m_IsActive
@@ -9371,6 +9389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469757706625486184, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6479089264811583624, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
@@ -9390,6 +9413,11 @@ PrefabInstance:
     - target: {fileID: 6479089264811583624, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
       propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761893553560182522, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7018687011070955307, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
@@ -9450,7 +9478,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2243482037936562520, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 53b22bbb15af07d408ee60d3a02e0bf9, type: 3}
 --- !u!1 &516058564
 GameObject:
@@ -19489,7 +19521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87b4a5817577d54fa5c9451215f893b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputField: {fileID: 112676039}
+  InputField: {fileID: 1637448320}
   InputFieldSlide: {fileID: 560094644}
   SliderEnabled: 0
   SubmitOnEnter: 1
@@ -27042,7 +27074,33 @@ MonoBehaviour:
       m_Calls: []
   m_OnSelect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1183636116}
+        m_TargetAssemblyTypeName: Microsoft.MixedReality.Toolkit.Experimental.UI.NonNativeKeyboard,
+          Assembly-CSharp
+        m_MethodName: SwitchKeyboardInputField
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1637448320}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1183636116}
+        m_TargetAssemblyTypeName: Microsoft.MixedReality.Toolkit.Experimental.UI.NonNativeKeyboard,
+          Assembly-CSharp
+        m_MethodName: PresentKeyboard
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls: []

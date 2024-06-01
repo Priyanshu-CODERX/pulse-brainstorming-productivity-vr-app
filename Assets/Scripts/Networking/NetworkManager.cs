@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
@@ -44,6 +45,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("Connecting!");
             PhotonNetwork.ConnectUsingSettings();
             PhotonNetwork.GameVersion = GAME_VERSION;
+            PhotonNetwork.NickName = m_Username;
+        }
+    }
+
+    public void OnLeaveRoom()
+    {
+        if(PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.LeaveRoom();
         }
     }
 
@@ -71,4 +81,36 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         _xrInstance.GetComponent<NetworkedPlayerConfiguration>().IsLocalUser();
     }
 
+    public override void OnPlayerEnteredRoom(Player player)
+    {
+        base.OnPlayerEnteredRoom(player);
+
+        Debug.Log($"OnPlayerEnteredRoom(): {player.NickName}");
+
+        if(PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log($"OnPlayerEnteredRoom IsMasterClient {PhotonNetwork.IsMasterClient}");
+        }
+
+    }
+
+    public override void OnPlayerLeftRoom(Player player)
+    {
+        base.OnPlayerLeftRoom(player);
+
+        Debug.Log($"OnPlayerLeftRoom(): {player.NickName}");
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log($"OnPlayerLeftRoom IsMasterClient {PhotonNetwork.IsMasterClient}");
+        }
+    }
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+        Debug.Log("User Left The Room");
+
+        SceneManager.LoadScene(0);
+    }
 }
