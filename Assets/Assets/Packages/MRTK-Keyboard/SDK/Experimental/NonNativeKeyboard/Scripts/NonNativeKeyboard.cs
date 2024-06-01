@@ -1073,5 +1073,10 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.UI
                 Close();
             }
         }
+
+        public void SwitchKeyboardInputField(TMPro.TMP_InputField input)
+        {
+            InputField = input;
+        }
     }
 }

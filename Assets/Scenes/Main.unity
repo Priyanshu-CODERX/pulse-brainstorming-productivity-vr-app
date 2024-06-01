@@ -537,6 +537,40 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &410190372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410190373}
+  m_Layer: 0
+  m_Name: Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410190373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410190372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1499661912}
+  - {fileID: 1504562251}
+  - {fileID: 1592767431}
+  m_Father: {fileID: 1217308505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491409050
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +585,7 @@ GameObject:
   - component: {fileID: 491409052}
   - component: {fileID: 491409051}
   m_Layer: 3
-  m_Name: Floor (3)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +786,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 3.8585}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 1663428527}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &541913715
 GameObject:
@@ -936,7 +970,7 @@ GameObject:
   - component: {fileID: 836397441}
   - component: {fileID: 836397440}
   m_Layer: 3
-  m_Name: Floor (1)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,7 +1171,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 1663428527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1217308504
 GameObject:
@@ -1168,15 +1202,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1993282446}
-  - {fileID: 836397444}
-  - {fileID: 1715915510}
-  - {fileID: 491409055}
-  - {fileID: 1499661912}
-  - {fileID: 1321635500}
-  - {fileID: 1504562251}
-  - {fileID: 1348305471}
-  - {fileID: 1592767431}
+  - {fileID: 1663428527}
+  - {fileID: 410190373}
   m_Father: {fileID: 1258343202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1258343201
@@ -1226,7 +1253,7 @@ GameObject:
   - component: {fileID: 1321635497}
   - component: {fileID: 1321635496}
   m_Layer: 3
-  m_Name: Floor (4)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1427,7 +1454,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 3.8585}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 1663428527}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1348305466
 GameObject:
@@ -1443,7 +1470,7 @@ GameObject:
   - component: {fileID: 1348305468}
   - component: {fileID: 1348305467}
   m_Layer: 3
-  m_Name: Floor (5)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1644,7 +1671,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 3.8585}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 1663428527}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!1 &1499661907
 GameObject:
@@ -1660,7 +1687,7 @@ GameObject:
   - component: {fileID: 1499661909}
   - component: {fileID: 1499661908}
   m_Layer: 3
-  m_Name: Floor (7)
+  m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1861,7 +1888,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 3.8585}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 410190373}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1504562246
 GameObject:
@@ -1877,7 +1904,7 @@ GameObject:
   - component: {fileID: 1504562248}
   - component: {fileID: 1504562247}
   m_Layer: 3
-  m_Name: Floor (6)
+  m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2078,7 +2105,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 3.8585}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 410190373}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1592767426
 GameObject:
@@ -2094,7 +2121,7 @@ GameObject:
   - component: {fileID: 1592767428}
   - component: {fileID: 1592767427}
   m_Layer: 3
-  m_Name: Floor (8)
+  m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2295,8 +2322,45 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 3.8585}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 410190373}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+--- !u!1 &1663428526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663428527}
+  m_Layer: 0
+  m_Name: Floors & Walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663428527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663428526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1993282446}
+  - {fileID: 836397444}
+  - {fileID: 1715915510}
+  - {fileID: 491409055}
+  - {fileID: 1321635500}
+  - {fileID: 1348305471}
+  m_Father: {fileID: 1217308505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1715915505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,7 +2375,7 @@ GameObject:
   - component: {fileID: 1715915507}
   - component: {fileID: 1715915506}
   m_Layer: 3
-  m_Name: Floor (2)
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2512,7 +2576,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 1663428527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731616523
 GameObject:
@@ -2986,7 +3050,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217308505}
+  m_Father: {fileID: 1663428527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1993282447
 MonoBehaviour:
