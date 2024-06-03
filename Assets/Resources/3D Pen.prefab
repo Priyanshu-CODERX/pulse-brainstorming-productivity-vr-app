@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 2633925057854482494}
   - component: {fileID: 852917576721300536}
   - component: {fileID: 8800865878949643953}
+  - component: {fileID: 3439858567028061000}
   m_Layer: 0
   m_Name: 3D Pen
   m_TagString: 3DPen
@@ -778,3 +779,17 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
+--- !u!114 &3439858567028061000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8817417619248206172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcf2d777e932344f85222651776ac6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PhotonView: {fileID: 0}
+  m_GrabInteractable: {fileID: 0}

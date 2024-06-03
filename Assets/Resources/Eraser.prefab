@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 9110089445432803231}
   - component: {fileID: 7825707309712214173}
   - component: {fileID: -641837058101062289}
+  - component: {fileID: 7912331630556549335}
   m_Layer: 0
   m_Name: Eraser
   m_TagString: Eraser
@@ -367,7 +368,6 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -641837058101062289}
-  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -387,6 +387,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
+--- !u!114 &7912331630556549335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356904397556537475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcf2d777e932344f85222651776ac6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PhotonView: {fileID: 0}
+  m_GrabInteractable: {fileID: 0}
 --- !u!1 &4736047533286507966
 GameObject:
   m_ObjectHideFlags: 0

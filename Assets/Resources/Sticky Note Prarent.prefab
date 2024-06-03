@@ -34534,6 +34534,7 @@ GameObject:
   - component: {fileID: 7881111022169934670}
   - component: {fileID: 732767966468416018}
   - component: {fileID: 8582929256463939342}
+  - component: {fileID: 7964453970514591058}
   m_Layer: 7
   m_Name: Sticky Note
   m_TagString: StickyNotes
@@ -34952,6 +34953,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
+--- !u!114 &7964453970514591058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337700071841927082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcf2d777e932344f85222651776ac6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PhotonView: {fileID: 0}
+  m_GrabInteractable: {fileID: 0}
 --- !u!1 &4768412489057122426
 GameObject:
   m_ObjectHideFlags: 0
