@@ -15,9 +15,11 @@ public class LobbyInstanceManager : MonoBehaviourPunCallbacks
 
     public void EnterAndJoinRoom()
     {
+        if(usernameField.text == "" || roomcodeField.text == "")
+            return;
+
         PlayerInstanceManager.Instance.Username = usernameField.text;
         PlayerInstanceManager.Instance.Roomcode = roomcodeField.text;
-
         SceneManager.LoadScene(m_SceneIndex);
     }
 }
