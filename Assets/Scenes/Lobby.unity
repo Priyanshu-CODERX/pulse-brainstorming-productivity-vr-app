@@ -9395,6 +9395,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5886886453891107242, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6479089264811583624, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
       propertyPath: m_BackGroundColor.a
@@ -9428,7 +9433,7 @@ PrefabInstance:
     - target: {fileID: 8655634332915482961, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 1.052
       objectReference: {fileID: 0}
     - target: {fileID: 8655634332915482961, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
@@ -9438,7 +9443,7 @@ PrefabInstance:
     - target: {fileID: 8655634332915482961, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000008940697
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8655634332915482961, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}

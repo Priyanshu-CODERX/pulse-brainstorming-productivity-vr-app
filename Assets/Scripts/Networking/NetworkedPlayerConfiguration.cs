@@ -17,7 +17,7 @@ public class NetworkedPlayerConfiguration : MonoBehaviourPunCallbacks, IPunObser
 
     private void Start()
     {
-        Username.text = NetworkManager.Instance.m_Username;
+        Username.text = PhotonNetwork.IsMasterClient ? (NetworkManager.Instance.m_Username).ToUpper() + " (master)" : (NetworkManager.Instance.m_Username).ToUpper();
     }
 
     public void IsLocalUser()
@@ -46,7 +46,14 @@ public class NetworkedPlayerConfiguration : MonoBehaviourPunCallbacks, IPunObser
     {
         if(stream.IsWriting)
         {
-            stream.SendNext(NetworkManager.Instance.m_Username);
+            /*stream.SendNext(NetworkManager.Instance.m_Username + " (master)");
+
+            if(!PhotonNetwork.IsMasterClient)
+            {
+                stream.SendNext(NetworkManager.Instance.m_Username);
+            }*/
+
+            stream.SendNext(PhotonNetwork.IsMasterClient ? (NetworkManager.Instance.m_Username).ToUpper() + " (master)" : (NetworkManager.Instance.m_Username).ToUpper());
         }
         else
         {
