@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoDestroyObject : MonoBehaviour
+public class AutoDestroyObject : MonoBehaviourPunCallbacks
 {
     private bool isGrabbed = false;
     private bool scheduledForDestruction = false;
@@ -50,7 +50,14 @@ public class AutoDestroyObject : MonoBehaviour
 
     private void DestroyObject()
     {
-        // Perform any cleanup or additional actions before destroying
-        PhotonNetwork.Destroy(gameObject);
+        if (photonView.IsMine)
+        {
+            // Perform any cleanup or additional actions before destroying
+            PhotonNetwork.Destroy(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("Tried to destroy object but don't have ownership.");
+        }
     }
 }
