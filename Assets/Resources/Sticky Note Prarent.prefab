@@ -34797,6 +34797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d23168bfd744d14ebf7b4455bf3bef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stickyNoteInputField: {fileID: 6893133004345836870}
   _stickyNoteOrigin: {fileID: 8283498124668707147}
   _stickyNoteShadowObject: {fileID: 8323556357911688857, guid: 3179c6039ee85704ba9dd8c067989f13,
     type: 3}
@@ -34933,6 +34934,7 @@ MonoBehaviour:
   OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 2780500456754702407}
   - {fileID: 8582929256463939342}
   sceneViewId: 0
   InstantiationId: 0

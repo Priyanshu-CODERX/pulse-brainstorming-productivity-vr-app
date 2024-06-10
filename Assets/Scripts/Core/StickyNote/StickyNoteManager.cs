@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
+using Photon.Pun;
 
-public class StickyNoteManager : MonoBehaviour
+public class StickyNoteManager : MonoBehaviourPunCallbacks, IPunObservable
 {
+    [SerializeField] private TMP_InputField _stickyNoteInputField;
     [SerializeField] private Transform _stickyNoteOrigin;
     [SerializeField] private GameObject _stickyNoteShadowObject;
     [SerializeField] private int _maxLength = 20;
@@ -13,6 +16,11 @@ public class StickyNoteManager : MonoBehaviour
     private GameObject _insShadowObject = null;
     private RaycastHit hit;
     private bool _canAttach = false;
+
+    private void Start()
+    {
+        _stickyNoteInputField.onValueChanged.AddListener(OnInputFieldChange);
+    }
 
     private void Update()
     {
@@ -69,6 +77,27 @@ public class StickyNoteManager : MonoBehaviour
         {
             Destroy(_insShadowObject);
             _insShadowObject = null;
+        }
+    }
+
+    void OnInputFieldChange(string text)
+    {
+        if (photonView.IsMine)
+            photonView.RPC("UpdateInputField", RpcTarget.AllBuffered, text);
+    }
+
+    [PunRPC]
+    void UpdateInputField(string text) => _stickyNoteInputField.text = text;
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(_stickyNoteInputField.text);
+        }
+        else
+        {
+            _stickyNoteInputField.text = (string)stream.ReceiveNext();
         }
     }
 }
