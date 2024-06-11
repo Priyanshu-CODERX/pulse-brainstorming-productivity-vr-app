@@ -57,6 +57,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
+    #region Networked Overrides
+
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
@@ -113,4 +115,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         SceneManager.LoadScene(0);
     }
+
+    #endregion
 }

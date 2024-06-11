@@ -27,6 +27,7 @@ public class ObjectInstantiationHandler : MonoBehaviourPunCallbacks
         {
             _instantiatedObject = PhotonNetwork.Instantiate(_object.name, _instantiationOrigin.transform.position, Quaternion.identity);
             _instantiatedObject.transform.position = _instantiationOrigin.transform.position;
+            _instantiatedObject.transform.rotation = _instantiatedObject.transform.rotation;
         }
     }
 
@@ -34,5 +35,6 @@ public class ObjectInstantiationHandler : MonoBehaviourPunCallbacks
     {
         _instantiatedObject = PhotonNetwork.Instantiate(_object.name, _instantiationOrigin.transform.position, Quaternion.identity);
         _instantiatedObject.transform.position = _instantiationOrigin.transform.position;
+        _instantiatedObject.transform.rotation = _instantiatedObject.transform.rotation;
     }
 }

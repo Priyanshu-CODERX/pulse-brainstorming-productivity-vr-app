@@ -27,7 +27,7 @@ public class StickyNoteManager : MonoBehaviourPunCallbacks, IPunObservable
         ShootRaycast();
     }
 
-
+    #region Sticky Note Mechanism
     public void OnGrabRelease()
     {
         if (_canAttach)
@@ -79,6 +79,9 @@ public class StickyNoteManager : MonoBehaviourPunCallbacks, IPunObservable
             _insShadowObject = null;
         }
     }
+    #endregion
+
+    #region Input Field Synchronization
 
     void OnInputFieldChange(string text)
     {
@@ -88,6 +91,8 @@ public class StickyNoteManager : MonoBehaviourPunCallbacks, IPunObservable
 
     [PunRPC]
     void UpdateInputField(string text) => _stickyNoteInputField.text = text;
+
+    #endregion
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
