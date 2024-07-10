@@ -498,6 +498,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2204667056555179846}
+        m_TargetAssemblyTypeName: HapticFeedbackController, Assembly-CSharp
+        m_MethodName: CallForHapticFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1288034473501096770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,6 +1311,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlaySegmentAudio
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2204667056555179846}
+        m_TargetAssemblyTypeName: HapticFeedbackController, Assembly-CSharp
+        m_MethodName: CallForHapticFeedback
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2312,6 +2336,7 @@ GameObject:
   - component: {fileID: -7090777196229195745}
   - component: {fileID: 596467762125892149}
   - component: {fileID: 3902099027988287355}
+  - component: {fileID: 2204667056555179846}
   m_Layer: 0
   m_Name: Networked XR Rig
   m_TagString: Untagged
@@ -2486,6 +2511,25 @@ MonoBehaviour:
   XRRigInputData: {fileID: 7018687011070955307}
   XRLocomotion: {fileID: 2601226755350765844}
   XRRigCamera: {fileID: 4742742712994802898}
+--- !u!114 &2204667056555179846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269486183301413524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d443dd77106a441ae973f57b78820f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hapticConfigurations:
+  - hapticIntensity: 0.1
+    hapticDuration: 0.1
+    referencedBaseController: {fileID: 5399466339363909458}
+  - hapticIntensity: 0.1
+    hapticDuration: 0.1
+    referencedBaseController: {fileID: 314852108452836348}
 --- !u!1 &3413881076500131403
 GameObject:
   m_ObjectHideFlags: 0
@@ -6645,6 +6689,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2204667056555179846}
+        m_TargetAssemblyTypeName: HapticFeedbackController, Assembly-CSharp
+        m_MethodName: CallForHapticFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6632775730485675901
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,6 +6930,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3902099027988287355}
         m_TargetAssemblyTypeName: NetworkedPlayerConfiguration, Assembly-CSharp
         m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2204667056555179846}
+        m_TargetAssemblyTypeName: HapticFeedbackController, Assembly-CSharp
+        m_MethodName: CallForHapticFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8675,6 +8743,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2204667056555179846}
+        m_TargetAssemblyTypeName: HapticFeedbackController, Assembly-CSharp
+        m_MethodName: CallForHapticFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8834163452820516183
 GameObject:
   m_ObjectHideFlags: 0
@@ -9020,6 +9100,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlaySegmentAudio
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2204667056555179846}
+        m_TargetAssemblyTypeName: HapticFeedbackController, Assembly-CSharp
+        m_MethodName: CallForHapticFeedback
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

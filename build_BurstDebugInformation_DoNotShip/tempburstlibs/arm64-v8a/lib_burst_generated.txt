@@ -16,6 +16,9 @@ Library: D:\Unity Projects\pulse-brainstorming-productivity-app\Temp\BurstOutput
 --assembly-defines=PhotonUnityNetworking.Demos;
 --assembly-defines=PhotonUnityNetworking;
 --assembly-defines=PhotonUnityNetworking.Utilities;
+--assembly-defines=PhotonVoice.API;
+--assembly-defines=PhotonVoice;
+--assembly-defines=PhotonVoice.PUN;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
 --assembly-defines=System;
@@ -123,6 +126,9 @@ Library: D:\Unity Projects\pulse-brainstorming-productivity-app\Temp\BurstOutput
 --assembly-defines=PhotonUnityNetworking.Demos;
 --assembly-defines=PhotonUnityNetworking;
 --assembly-defines=PhotonUnityNetworking.Utilities;
+--assembly-defines=PhotonVoice.API;
+--assembly-defines=PhotonVoice;
+--assembly-defines=PhotonVoice.PUN;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
 --assembly-defines=System;
