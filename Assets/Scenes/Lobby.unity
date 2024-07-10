@@ -9360,6 +9360,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 734159316194893450, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 809208647807212919, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
       propertyPath: m_IsActive
@@ -9379,6 +9384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Networked XR Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852794676843426550, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3902099027988287355, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
         type: 3}
@@ -9485,8 +9495,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 3852794676843426550, guid: 53b22bbb15af07d408ee60d3a02e0bf9, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 734159316194893450, guid: 53b22bbb15af07d408ee60d3a02e0bf9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2243482037936562520, guid: 53b22bbb15af07d408ee60d3a02e0bf9,
