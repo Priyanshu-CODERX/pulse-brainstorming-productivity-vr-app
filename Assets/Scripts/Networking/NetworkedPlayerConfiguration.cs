@@ -1,5 +1,5 @@
 using Photon.Pun;
-using UnityEngine;  
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
 
@@ -22,7 +22,7 @@ public class NetworkedPlayerConfiguration : MonoBehaviourPunCallbacks, IPunObser
 
     public void IsLocalUser()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             XRRigCharacterController.enabled = true;
             XRRigCharacterControllerDriver.enabled = true;
@@ -36,7 +36,7 @@ public class NetworkedPlayerConfiguration : MonoBehaviourPunCallbacks, IPunObser
 
     public void LeaveRoom()
     {
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             NetworkManager.Instance.OnLeaveRoom();
         }
@@ -44,7 +44,7 @@ public class NetworkedPlayerConfiguration : MonoBehaviourPunCallbacks, IPunObser
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if(stream.IsWriting)
+        if (stream.IsWriting)
         {
             /*stream.SendNext(NetworkManager.Instance.m_Username + " (master)");
 

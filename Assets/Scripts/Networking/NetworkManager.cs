@@ -1,5 +1,4 @@
 using Photon.Pun;
-using Photon.Voice;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +16,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             if (!instance)
                 instance = FindObjectOfType<NetworkManager>();
             return instance;
+
         }
     }
 
@@ -27,6 +27,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private GameObject m_PlayerXRRig;
     [SerializeField]
     private Transform m_SpawnPoint;
+    private bool isVoiceClientInRoom = false;
 
     public string m_Username;
     public string m_Roomcode;
@@ -42,7 +43,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         m_Username = PlayerInstanceManager.Instance.Username;
         m_Roomcode = PlayerInstanceManager.Instance.Roomcode;
 
-        if(!PhotonNetwork.IsConnected)
+        if (!PhotonNetwork.IsConnected)
         {
             Debug.Log("Connecting!");
             PhotonNetwork.ConnectUsingSettings();
@@ -51,11 +52,32 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
+    private void OnVoiceNetworkJoin()
+    {
+        if (!isVoiceClientInRoom)
+        {
+            PunVoiceClient.Instance.Client.OpJoinOrCreateRoom(new EnterRoomParams
+            {
+                RoomName = m_Roomcode,
+                RoomOptions = new RoomOptions()
+            });
+        }
+        else
+        {
+            Debug.LogWarning("User already in the room!");
+        }
+    }
+
     public void OnLeaveRoom()
     {
-        if(PhotonNetwork.IsConnected)
+        if (PhotonNetwork.IsConnected)
         {
             PhotonNetwork.LeaveRoom();
+        }
+
+        if (isVoiceClientInRoom)
+        {
+            PunVoiceClient.Instance.Client.OpLeaveRoom(false);
         }
     }
 
@@ -83,6 +105,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         GameObject _xrInstance = PhotonNetwork.Instantiate(m_PlayerXRRig.name, m_SpawnPoint.position, Quaternion.identity);
         _xrInstance.GetComponent<NetworkedPlayerConfiguration>().IsLocalUser();
+
+        isVoiceClientInRoom = true;
+        OnVoiceNetworkJoin();
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        base.OnJoinRandomFailed(returnCode, message);
+        Debug.LogError($"Error: [{returnCode}] - {message}");
     }
 
     public override void OnPlayerEnteredRoom(Player player)
@@ -91,7 +122,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         Debug.Log($"OnPlayerEnteredRoom(): {player.NickName}");
 
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log($"OnPlayerEnteredRoom IsMasterClient {PhotonNetwork.IsMasterClient}");
         }
@@ -114,8 +145,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         base.OnLeftRoom();
         Debug.Log("User Left The Room");
+        isVoiceClientInRoom = false;
 
         SceneManager.LoadScene(0);
+    }
+
+    public void OnVoiceClientStateChanged()
+    {
+        Debug.Log($"Voice Client State: {PunVoiceClient.Instance.ClientState}");
+
+        if (PunVoiceClient.Instance.ClientState == ClientState.Joined)
+        {
+            isVoiceClientInRoom = true;
+            Debug.Log("Voice client successfully joined the room");
+        }
     }
 
     #endregion
