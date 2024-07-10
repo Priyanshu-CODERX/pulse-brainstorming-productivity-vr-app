@@ -1,7 +1,9 @@
 using Photon.Pun;
+using Photon.Voice;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Voice.PUN;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
