@@ -43,6 +43,7 @@ MonoBehaviour:
   - CantHearYou
   - ChangeColour
   - HeresWhy
+  - RPC_UpdateColorOverNetwork
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
